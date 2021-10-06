@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Geostar+Fill&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Codystar&display=swap');
+body{
+    /* background-color:black; */
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.100hdwallpapers.com%2Fwallpapers%2F3840x2160%2Fsurreal_space_astronaut_4k-hd_wallpapers.jpg&f=1&nofb=1");
+    background-size: 1000px;
+    cursor: crosshair;
+}
+h1{
+    background-color: navy;
+    color:yellow;
+    border:1px dashed chartreuse;
+    border-bottom: 5px dashed chartreuse;
+    font-family: 'Geostar Fill', cursive;
+    max-width: 850px;
+    cursor: none;
+    word-spacing: 20px;
+}
+h2{
+    background-color:darkslateblue;
+    color: white;
+    text-shadow: 5px 5px 2px pink;
+    font-family: 'Codystar', cursive;
+}
+h2:hover{
+    background-color:lightslategray;
+    height: 20px
+}
+h3{
+    background-color:darkgrey;
+    letter-spacing: 3px;
+}
+p{
+    color:lightyellow;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+ul{
+    display:flex;
+    background-color:mediumblue;
+    list-style-type: circle;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+ul li{
+    outline:2px dotted navajowhite;
+    margin: -5px;
+}
+ol{
+    background-color:aqua;
+    list-style-type: upper-roman;
+    padding: 20px 0px 10px 40px;
+    margin: 50px;
+    width:  200px;
+}
+li:hover{
+    background-color: mediumvioletred;
+    text-decoration: line-through;
+}
+img{
+    width:110vw;
+    border-radius: 1em;
+    opacity: 0.8;
+}
+figcaption{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:greenyellow;
+    position: relative;
+    top: -50px;
+    left: -10px;
+}
+a:link,a:visited{
+    background-color: mediumblue;
+    color:firebrick;
+    text-decoration:overline;
+}
+a:hover{
+    background-color: sienna;
+    color:lightyellow;
+    text-decoration: line-through;
+    font-size: 2em;
+    padding: 10px;
+}
+#fixed{
+    position:fixed;
+    z-index: 5;
+    top:20vh;
+    left: 20vw;
+}
+#welcome{
+    margin-left: 50%
+}
+#tenets{
+    height: 100px;
+    border-radius: 20px;
+    overflow: scroll;
+    quotes: "«" "»" "‹" "›";
+    box-shadow: -4px 3px 10px chartreuse;
+    cursor: help;
+}
+#moon{
+    display:inline;
+    width:50px;
+}
+#universe{
+    text-align:center;
+}
+::selection{
+    background-color: lightyellow;
+}

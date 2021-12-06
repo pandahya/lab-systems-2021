@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MIKEA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <a href="rooms.html"><li>home</li></a>
+                <a href="cart.html"><li>cart</li></a>
+                <a href="login.html"><li>login</li></a>
+              </ul>
+        </div>
+    </nav>
+<main class="fullwidth">
+    <h1 class="breadcrumb"><a href="rooms.html">MIKEA</a> > <a href="cart.html">my cart</a> > <strong>checkout</strong></h1>
+<div class="split">
+    <div>
+        <section class="checkout_box" id="checkout_address">
+            <h1>Shipping Address:</h1>
+            <button id="scan_address">scan microchip</button>
+            <!-- <h1 class="open_modal">scan microchip</h1> -->
+            <!-- https://www.w3schools.com/howto/howto_css_modals.asp -->
+        </section>
+        <section class="checkout_box" id="checkout_payment">
+            <h1>Payment:</h1>
+            <button id="scan_payment">scan microchip</button>
+        </section>
+        <section class="checkout_box" id="checkout_reciept">
+            <div class="two">
+            <article class="product_list">
+                <h1>Product</h1>
+                <p>plant</p>
+                <p>plant</p>
+            </article>
+            <article class="price_list">
+                <h1>Price</h1>
+                <p>$200000</p>
+            </article>
+        </div>
+        <div class="two">
+            <article class="subtotal">
+                <h2>subtotal</h2>
+                <h2>tax</h2>
+            </article>
+            <article class="subprice">
+                <h2>$20000</h2>
+                <h2>$500</h2>
+            </article>
+        </div>
+        <div class="two" style="border-bottom:none">
+            <article class="total">
+                <h2>total</h2>
+            </article>
+            <article class="total_price">
+                <h2>$2500000</h2>
+            </article>
+        </div>
+        </section>
+        <section>
+            <button id="confirm">confirm order</button>
+        </section>
+    </div>
+    <div style="width:20vw"></div>
+</div>
+<div class="modal" id="scan">
+    <div class="modal_content">
+        <span class="close">&times;</span>
+        <h1>scan microchip now</h1>
+        <video autoplay></video>
+    </div>
+</div>
+<div class="modal" id="confirmation">
+    <div class="modal_content">
+        <h1>ORDER CONFIRMED</h1>
+        <p><a href="rooms.html">keep shopping &rarr;</a></p>
+    </div>
+</div>
+</main>
+
+</body>
+<script src="js/scan.js"></script>
+</html>

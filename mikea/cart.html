@@ -16,7 +16,7 @@
             <span></span>
             <ul id="menu">
                 <a href="rooms.html"><li>home</li></a>
-                <a href="cart.html"><li>cart</li></a>
+                <a href="cart.html"><li id="cart_num">cart (0)</li></a>
                 <a href="login.html"><li>login</li></a>
               </ul>
         </div>
@@ -31,12 +31,12 @@
             <div class="two">
                 <article class="product_list">
                     <h1>Product</h1>
-                    <p>plant</p>
-                    <p>plant</p>
+                    <!-- <p>plant</p>
+                    <p>plant</p> -->
                 </article>
                 <article class="price_list">
                     <h1>Price</h1>
-                    <p>$200000</p>
+                    <!-- <p>$200000</p> -->
                 </article>
             </div>
             <div class="two">
@@ -45,8 +45,8 @@
                     <h2>tax</h2>
                 </article>
                 <article class="subprice">
-                    <h2>$20000</h2>
-                    <h2>$500</h2>
+                    <!-- <h2>$20000</h2>
+                    <h2>$500</h2> -->
                 </article>
             </div>
             <div class="two" style="border-bottom:none">
@@ -54,7 +54,7 @@
                     <h2>total</h2>
                 </article>
                 <article class="total_price">
-                    <h2>$2500000</h2>
+                    <!-- <h2>$2500000</h2> -->
                 </article>
             </div>
         </div>
@@ -66,4 +66,10 @@
 </div>
 </main>
 </body>
+<script>
+    const cartNum = document.getElementById("cart_num");
+
+    let plantNum = sessionStorage.length - 1;
+    cartNum.innerHTML = `cart (${sessionStorage.length-1})`;
+</script>
 </html>

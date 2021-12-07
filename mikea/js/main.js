@@ -6,9 +6,9 @@ let cartItems = [];
 let cartPrices = [];
 
 //get number of plants in storage at start
-let plantNum = sessionStorage.length - 1;
+let plantNum = sessionStorage.length;
 
-cartNum.innerHTML = `cart (${sessionStorage.length-1})`;
+cartNum.innerHTML = `cart (${sessionStorage.length})`;
 
 //for loop to add that number of plants into the array
 for(let i=0; i<plantNum; i++){
@@ -22,6 +22,6 @@ addPlant.onclick = function(){
     sessionStorage.setItem("plant"+cartItems.length, "200");
     // sessionStorage.clear();
 
-    cartNum.innerHTML = `cart (${sessionStorage.length-1})`;
+    cartNum.innerHTML = `cart (${sessionStorage.length})`;
 
 }

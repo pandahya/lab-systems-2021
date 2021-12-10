@@ -25,7 +25,7 @@
     <h1 class="breadcrumb"><a href="rooms.html">MIKEA</a> > <strong>my cart</strong></h1>
 <div class="split">
     <section id="cart_box"> 
-        <div class="item">plant</div>
+        <!-- <div class="item">plant</div> -->
     </section>
     <section id="cart_reciept">
         <div id="cart_reciept_box">
@@ -74,6 +74,9 @@
     let cartItems = [];
     let cartPrices = [];
     let subpriceNum, taxNum, totalNum;
+    let cartBox = document.querySelector("#cart_box");
+    let newPlant;
+    let plants;
 
     //need to -1 for vscode
     let plantNum = sessionStorage.length;
@@ -82,13 +85,14 @@
     for(let i=0; i<plantNum; i++){
         cartItems.push("plant");
         cartPrices.push("200");
-        subpriceNum = i*200;
+        subpriceNum = 200 + (i*200);
         taxNum = subpriceNum*0.2;
         totalNum = subpriceNum + taxNum;
     }
     cartItems.forEach(function(){
         const p1 = document.createElement("P");
         const p2 = document.createElement("P");
+        newPlant = document.createElement("div");
         const listPlant = document.createTextNode("plant");
         const listPrice = document.createTextNode("$200");
         p1.appendChild(listPlant);
@@ -98,20 +102,26 @@
         subprice.innerHTML = "$"+subpriceNum;
         tax.innerHTML = "$"+taxNum;
         totalPrice.innerHTML = "$"+totalNum;
+        newPlant.classList.add("item");
+        cartBox.appendChild(newPlant);
+        
+        let wRand = cartBox.clientWidth - newPlant.clientWidth;
+        let hRand = cartBox.clientHeight - newPlant.clientHeight;
+        let y = newPlant.style.top = Math.random()*hRand+"px";
+        let x = newPlant.style.left = Math.random()*wRand+"px";
     });
 
     //https://www.kirupa.com/html5/drag.htm
     let dragItem = document.querySelector(".item");
-    let cartBox = document.querySelector("#cart_box");
     let active = false;
     let currentX, currentY, initialX, initialY;
     let xOffset = 0;
     let yOffset = 0;
-
+ 
     cartBox.addEventListener("mousedown", dragStart, false);
     cartBox.addEventListener("mouseup", dragEnd, false);
     cartBox.addEventListener("mousemove", drag, false);
-
+    
     function dragStart(e) {
         initialX = e.clientX - xOffset;
         initialY = e.clientY - yOffset;
@@ -137,6 +147,5 @@
     function setTranslate(xPos, yPos, el){
         el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
     }
-
 </script>
 </html>

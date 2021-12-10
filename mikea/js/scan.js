@@ -21,13 +21,12 @@ span.onclick = function(){
     closeCam();
 }
 window.onclick = function(event){
-    if(event.target == modal){
+    if(event.target == scan){
         scan.style.display = "none";
         closeCam();
     }
 }
 //https://www.digitalocean.com/community/tutorials/front-and-rear-camera-access-with-javascripts-getusermedia
-// const video = document.querySelector('video');
 
 let constraints = {
     video: {
@@ -44,7 +43,8 @@ let constraints = {
         facingMode: 'user'
       }
 }
-let video = document.querySelector('video');
+const video = document.querySelector('video');
+const mediaStream = video.srcObject;
 function camera(){
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(mediaStream) {
@@ -63,8 +63,8 @@ function camera(){
 function closeCam(){
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(mediaStream){
-        let track = mediaStream.getTracks()[0];
-        track.stop();
+        const track = mediaStream.getTracks();
+        track[0].stop();
         console.log('bye');
     },
     function(error){

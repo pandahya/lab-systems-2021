@@ -230,6 +230,7 @@ nav{
     width: 70vw;
     height: 80vh;
     touch-action: none;
+    position: relative;
 }
 .item{
     width: 100px;
@@ -237,6 +238,12 @@ nav{
     background-color: green;
     touch-action: none;
     user-select: none;
+    position: absolute;
+}
+#drag{
+    touch-action: none;
+    user-select: none;
+    position: relative;
 }
 .item:hover{
     background-color: blue;

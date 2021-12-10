@@ -24,37 +24,35 @@
 <main class="fullwidth">
     <h1 class="breadcrumb"><a href="rooms.html">MIKEA</a> > <strong>my cart</strong></h1>
 <div class="split">
-    <section id="cart_box">
+    <section id="cart_box"> 
+        <div class="item">plant</div>
     </section>
     <section id="cart_reciept">
         <div id="cart_reciept_box">
             <div class="two">
-                <article class="product_list">
+                <article id="product_list">
                     <h1>Product</h1>
-                    <!-- <p>plant</p>
-                    <p>plant</p> -->
                 </article>
-                <article class="price_list">
+                <article id="price_list">
                     <h1>Price</h1>
-                    <!-- <p>$200000</p> -->
                 </article>
             </div>
             <div class="two">
-                <article class="subtotal">
+                <article id="subtotal">
                     <h2>subtotal</h2>
                     <h2>tax</h2>
                 </article>
-                <article class="subprice">
-                    <!-- <h2>$20000</h2>
-                    <h2>$500</h2> -->
+                <article>
+                    <h2 id="subprice"></h2>
+                    <h2 id="tax"></h2>
                 </article>
             </div>
             <div class="two" style="border-bottom:none">
-                <article class="total">
+                <article id="total">
                     <h2>total</h2>
                 </article>
-                <article class="total_price">
-                    <!-- <h2>$2500000</h2> -->
+                <article>
+                    <h2 id="total_price"></h2>
                 </article>
             </div>
         </div>
@@ -68,8 +66,77 @@
 </body>
 <script>
     const cartNum = document.getElementById("cart_num");
+    const productList = document.getElementById("product_list");
+    const priceList = document.getElementById("price_list");
+    const subprice = document.getElementById("subprice")
+    const tax = document.getElementById("tax");
+    const totalPrice = document.getElementById("total_price");
+    let cartItems = [];
+    let cartPrices = [];
+    let subpriceNum, taxNum, totalNum;
 
+    //need to -1 for vscode
     let plantNum = sessionStorage.length;
     cartNum.innerHTML = `cart (${sessionStorage.length})`;
+
+    for(let i=0; i<plantNum; i++){
+        cartItems.push("plant");
+        cartPrices.push("200");
+        subpriceNum = i*200;
+        taxNum = subpriceNum*0.2;
+        totalNum = subpriceNum + taxNum;
+    }
+    cartItems.forEach(function(){
+        const p1 = document.createElement("P");
+        const p2 = document.createElement("P");
+        const listPlant = document.createTextNode("plant");
+        const listPrice = document.createTextNode("$200");
+        p1.appendChild(listPlant);
+        productList.appendChild(p1);
+        p2.appendChild(listPrice);
+        priceList.appendChild(p2);
+        subprice.innerHTML = "$"+subpriceNum;
+        tax.innerHTML = "$"+taxNum;
+        totalPrice.innerHTML = "$"+totalNum;
+    });
+
+    //https://www.kirupa.com/html5/drag.htm
+    let dragItem = document.querySelector(".item");
+    let cartBox = document.querySelector("#cart_box");
+    let active = false;
+    let currentX, currentY, initialX, initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+
+    cartBox.addEventListener("mousedown", dragStart, false);
+    cartBox.addEventListener("mouseup", dragEnd, false);
+    cartBox.addEventListener("mousemove", drag, false);
+
+    function dragStart(e) {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+        if (e.target === dragItem) {
+            active = true;
+        }
+    }
+    function dragEnd(e){
+        intialX = currentX;
+        initialY = currentY;
+        active = false;
+    }
+    function drag(e){
+        if(active){
+            e.preventDefault();
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+            xOffset = currentX;
+            yOffset = currentY;
+            setTranslate(currentX, currentY, dragItem);
+        }
+    }
+    function setTranslate(xPos, yPos, el){
+        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+
 </script>
 </html>

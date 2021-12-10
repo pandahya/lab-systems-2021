@@ -229,6 +229,22 @@ nav{
     background: grey;
     width: 70vw;
     height: 80vh;
+    touch-action: none;
+}
+.item{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    touch-action: none;
+    user-select: none;
+}
+.item:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+.item:active{
+    background-color: red;
+    cursor: grabbing;
 }
 #cart_reciept{
     max-height: 80vh;
@@ -238,7 +254,7 @@ nav{
     width: 20vw;
     padding: 20px;
 }
-.price_list, .subprice, .total_price{
+#price_list, #subprice, #total_price{
     text-align: right;
 }
 .two{

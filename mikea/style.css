@@ -327,3 +327,9 @@ button{
 #confirm{
     float: right;
 }
+#confirmation .modal_content{
+    width: fit-content;
+    height: min-content;
+    padding: 50px;
+    margin-top: 30vh;
+}

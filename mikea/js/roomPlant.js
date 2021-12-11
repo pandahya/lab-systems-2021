@@ -1,5 +1,5 @@
 let illo = new Zdog.Illustration({
-    element: '.zdog-canvas',
+    element: '#plant',
     dragRotate: true,
 });
 

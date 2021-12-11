@@ -58,7 +58,8 @@
             <article id="total">
                 <h2>total</h2>
             </article>
-            <article id="total_price">
+            <article>
+                <h2 id="total_price"></h2>
             </article>
         </div>
         </section>
@@ -78,15 +79,53 @@
 <div class="modal" id="confirmation">
     <div class="modal_content">
         <h1>ORDER CONFIRMED</h1>
-        <p><a href="rooms.html">keep shopping &rarr;</a></p>
+        <p id="clear"><a href="rooms.html">keep shopping &rarr;</a></p>
     </div>
 </div>
 </main>
 
 </body>
 <script src="js/scan.js"></script>
-<script src="js/cart.js"></script>
 <script>
+    const cartNum = document.getElementById("cart_num");
+    const productList = document.getElementById("product_list");
+    const priceList = document.getElementById("price_list");
+    const subprice = document.getElementById("subprice")
+    const tax = document.getElementById("tax");
+    const totalPrice = document.getElementById("total_price");
+    let cartItems = [];
+    let cartPrices = [];
+    let subpriceNum, taxNum, totalNum;
+    let cartBox = document.querySelector("#cart_box");
 
+    let plantNum = sessionStorage.length;
+    cartNum.innerHTML = `cart (${sessionStorage.length})`;
+
+    for(let i=0; i<plantNum; i++){
+        cartItems.push("plant");
+        cartPrices.push("200");
+        subpriceNum = 200 + (i*200);
+        taxNum = subpriceNum*0.2;
+        totalNum = subpriceNum + taxNum;
+    }
+    cartItems.forEach(function(){
+        const p1 = document.createElement("P");
+        const p2 = document.createElement("P");
+        newPlant = document.createElement("div");
+        const listPlant = document.createTextNode("plant");
+        const listPrice = document.createTextNode("$200");
+        p1.appendChild(listPlant);
+        productList.appendChild(p1);
+        p2.appendChild(listPrice);
+        priceList.appendChild(p2);
+        subprice.innerHTML = "$"+subpriceNum;
+        tax.innerHTML = "$"+taxNum;
+        totalPrice.innerHTML = "$"+totalNum;
+    });
+
+    const clear = document.getElementById("clear");
+    clear.addEventListener("click",function(){
+        sessionStorage.clear();
+    })
 </script>
 </html>

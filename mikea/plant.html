@@ -23,22 +23,24 @@
 <main>
     <h1 class="breadcrumb"><a href="rooms.html">MIKEA</a> > <a href="living-room.html">living room</a> > <strong>plant</strong> </h1>
 <section id="product">
-    <figure id="plant_lg"></figure>
+    <figure onmousedown="grabbing();"><canvas class="zdog-canvas" id="plant_lg" width="400" height="500"></canvas></figure>
     <article>
-        <h1>plant</h1>
-        <p>words words words this is a description of the platn</p>
+        <h1>Plant</h1>
+        <h2>words words words this is a description of the platn</h2>
         <div class="item_options">
             <button class="option_btn" id="plant_brown" type="button"></button>
             <button class="option_btn" id="plant_blue" type="button"></button>
             <button class="option_btn" id="plant_white" type="button"></button>
         </div>
         <button class="add_to_cart" id="add_plant" type="button" >add to cart</button>
+        <p class="readMore"></p>
     </article>
 </section>
 </main>
 </body>
-<!-- <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script> -->
-<!-- <script src="js/zdog.js"></script> -->
+<script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+<script src="js/big-plant.js"></script>
+
 <script>
     const addPlant = document.getElementById("add_plant");
     const addToCart = document.getElementsByClassName("add_to_cart");
@@ -56,7 +58,7 @@
     for(let i=0; i<plantNum; i++){
         cartItems.push("plant");
         cartPrices.push("200");
-    }
+    };
 
     addPlant.onclick = function(){
         cartItems.push("plant");
@@ -65,7 +67,7 @@
         // sessionStorage.clear();
 
         cartNum.innerHTML = `cart (${sessionStorage.length})`;
+    };
 
-    }
 </script>
 </html>

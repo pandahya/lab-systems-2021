@@ -9,7 +9,7 @@ body{
 main{
     max-width: 1000px;
     padding: 20px;
-    /* height: 100vh; */
+    /* min-height: 100vh; */
     margin: 0 auto;
     /* background: lightcoral; */
 }
@@ -27,13 +27,19 @@ section{
     top: 10vh;
 }
 h1{
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 500;
     margin: 0.2em 0;
 }
 h2{
     font-size: 1.2em;
     font-weight: 500;
+    margin: 10px 0;
+}
+h3{
+    margin: 10px 0;
+    font-weight: 500;
+    font-size: 1.1em;
 }
 p{
     margin: 10px 0;
@@ -184,6 +190,7 @@ nav{
 }
 
 .breadcrumb{
+    z-index: 5;
     position: fixed;
     top: 20px;
     left: 20px;
@@ -202,22 +209,66 @@ nav{
     height: 100vh;
     overflow: hidden;
 }
-/* .zdog-canvas{
-    background: black;
-} */
 #plant{
     position: absolute;
     bottom: 10vh;
     right: 10vw;
 }
 #plant_lg{
-    background-color:lime;
+    /* background-color:lime; */
     width: 400px;
     height: 500px;
 }
+#plant_lg:hover{
+    cursor:grab;
+}
+/* #plant_lg:active{
+    cursor:grabbing;
+} */
 #product{
     display: grid;
     grid: 1fr / 1fr 1fr;
+}
+#plant_blue{
+    background-color: cornflowerblue;
+}
+#plant_pink{
+    background-color: pink;
+}
+#plant_coral{
+    background-color: coral;
+}
+#plant_yellow{
+    background-color: yellow;
+}
+#plant_white{
+    background-color: whitesmoke;
+}
+#microchip{
+    color: blue;
+}
+#microchip:hover{
+    cursor: pointer;
+    text-decoration: underline wavy;
+    text-decoration-skip-ink: none;
+}
+#reviews{
+    padding: 20px;
+}
+.review{
+    margin: 40px;
+    padding: 20px;
+    outline: 1px solid black;
+}
+.review div{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+.review h2{
+    margin: 0;
+    color: blue;
 }
 
 .split{
@@ -261,7 +312,7 @@ nav{
     width: 20vw;
     padding: 20px;
 }
-#price_list, #subprice, #total_price{
+#price_list, #subprice, #tax, #total_price{
     text-align: right;
 }
 .two{

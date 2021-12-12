@@ -1,25 +1,25 @@
 let illo = new Zdog.Illustration({
     element: '#plant',
-    dragRotate: true,
+    // dragRotate: true,
 });
 
-let plant = new Zdog.Group({
+let leaves = new Zdog.Group({
     addTo: illo,
-    rotate: {x: Zdog.TAU/12}
+    rotate: {x: Zdog.TAU*1.9}
 });
 
 let can = new Zdog.Cylinder({
-    addTo: plant,
+    addTo: illo,
     diameter: 100,
     length: 100,
     stroke: false,
-    color: "brown",
-    backface: '#E62',
-    rotate: {x: Zdog.TAU/4},
+    color: "cornflowerblue",
+    backface: 'grey',
+    rotate: {x: Zdog.TAU*1.65},
 });
 
 let leaf = new Zdog.Cone({
-    addTo: plant,
+    addTo: leaves,
     diameter: 30,
     length: 50,
     stroke: false,

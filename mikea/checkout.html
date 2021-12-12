@@ -26,23 +26,23 @@
 <div class="split">
     <div>
         <section class="checkout_box" id="checkout_address">
-            <h1>Shipping Address:</h1>
+            <h2 style="font-size: 1.5em;">Shipping Address:</h2>
             <button id="scan_address">scan microchip</button>
             <!-- <h1 class="open_modal">scan microchip</h1> -->
             <!-- https://www.w3schools.com/howto/howto_css_modals.asp -->
         </section>
         <section class="checkout_box" id="checkout_payment">
-            <h1>Payment:</h1>
+            <h2 style="font-size: 1.5em;">Payment:</h2>
             <button id="scan_payment">scan microchip</button>
         </section>
         <section class="checkout_box" id="checkout_reciept">
             <div class="two">
-            <article id="product_list">
-                <h1>Product</h1>
-            </article>
-            <article id="price_list">
-                <h1>Price</h1>
-            </article>
+                <article id="product_list">
+                    <h2 style="font-size: 1.5em;">Product</h2>
+                </article>
+                <article id="price_list">
+                    <h2 style="font-size: 1.5em;">Price</h2>
+                </article>
         </div>
         <div class="two">
             <article id="subtotal">
@@ -103,21 +103,23 @@
 
     for(let i=0; i<plantNum; i++){
         cartItems.push("plant");
-        cartPrices.push("200");
-        subpriceNum = 200 + (i*200);
+        cartPrices.push("2000");
+        subpriceNum = 2000 + (i*2000);
         taxNum = subpriceNum*0.2;
         totalNum = subpriceNum + taxNum;
     }
     cartItems.forEach(function(){
-        const p1 = document.createElement("P");
-        const p2 = document.createElement("P");
+        const p1 = document.createElement("H2");
+        const p2 = document.createElement("H2");
         newPlant = document.createElement("div");
         const listPlant = document.createTextNode("plant");
-        const listPrice = document.createTextNode("Ͼ200");
+        const listPrice = document.createTextNode("Ͼ2000");
         p1.appendChild(listPlant);
         productList.appendChild(p1);
+        p1.style.fontWeight = "400";
         p2.appendChild(listPrice);
         priceList.appendChild(p2);
+        p2.style.fontWeight = "400";
         subprice.innerHTML = "Ͼ"+subpriceNum;
         tax.innerHTML = "Ͼ"+taxNum;
         totalPrice.innerHTML = "Ͼ"+totalNum;

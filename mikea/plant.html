@@ -23,24 +23,75 @@
 <main>
     <h1 class="breadcrumb"><a href="rooms.html">MIKEA</a> > <a href="living-room.html">living room</a> > <strong>plant</strong> </h1>
 <section id="product">
-    <figure onmousedown="grabbing();"><canvas class="zdog-canvas" id="plant_lg" width="400" height="500"></canvas></figure>
+    <figure><canvas class="zdog-canvas" id="plant_lg" width="400" height="500"></canvas></figure>
     <article>
         <h1>Plant</h1>
-        <h2>words words words this is a description of the platn</h2>
+        <h2>Level 8 Green Smart Plant</h2>
+        <h2>Ͼ2000</h2>
         <div class="item_options">
-            <button class="option_btn" id="plant_brown" type="button"></button>
             <button class="option_btn" id="plant_blue" type="button"></button>
+            <button class="option_btn" id="plant_pink" type="button"></button>
+            <button class="option_btn" id="plant_coral" type="button"></button>
+            <button class="option_btn" id="plant_yellow" type="button"></button>
             <button class="option_btn" id="plant_white" type="button"></button>
         </div>
         <button class="add_to_cart" id="add_plant" type="button" >add to cart</button>
-        <p class="readMore"></p>
+        <p clas="readMore">
+            Plant is a smart houseplant with a clean design and easy maintenance. Using state of the art technology, Plant purifies the air of 95% of known pollutants.
+            <br>
+            It's easily pairable with the latest microchips to notify you with customizable notifications about its needs, your air quality, how it's doing, and more.
+        </p>
+        <p class="readMore">
+            Size: 3 unitsq x 3 unitsq x 5 unitsq
+            <br>
+            PlantOS version 1.45.9
+            <br>
+            Compatible with Personal microchips Grade B and above and Task microchips Grade C and above.
+            <br>
+            <span id="microchip">Which microchip do I have?</span>
+        </p>
+        <p class="readMore">
+            As mandated by Policy no. 88590 to reduce carbon emissions, each household must have one plant for every two people, each plant must be a Level 5 Green/Blue/White or higher.
+            <br>
+            Plant is a Level 8 Green product.
+        </p>
+    </article>
+</section>
+<div class="modal" id="ref">
+    <div class="modal_content">
+        <span class="close">&times;</span>
+        <h1>Microchip Reference Sheet</h1>
+        <figure>
+            <img src="">
+        </figure>
+    </div>
+</div>
+<section id="reviews">
+    <h1>Reviews</h1>
+    <article class="review">
+        <div><h2>Hassle Free Upgrade</h2><h2>★★★★★</h2></div>
+        <h3>Tanvi Mishra</h3>
+        <p>My company has used MIKEA's Plant's for years now in the office, ever since they started making the first versions 5 years ago. It was finally time for us to upgrade and I went with MIKEA's Plant again without a doubt. Their products are just exquisite. They all pair swiftly with the Moogle Task Chips.</p>
+    </article>
+    <article class="review">
+        <div><h2>Air feels so much fresher</h2><h2>★★★★★</h2></div>
+        <h3>Tanvi Mishra</h3>
+        <p>
+            I've been using my new Plant for a few days and I can feel the air getting fresher already! It's super easy to pair with my microchip (I have the latest MApple Micro 3).
+        </p>
+    </article>
+    <article class="review">
+        <div><h2>Easy setup</h2><h2>★★★★★</h2></div>
+        <h3>Tanvi Mishra</h3>
+        <p>
+            I previously had a Model Green from Mesla that did really well at purifying the air, but it wasn't the right style for my home. My friend reccomended that I get Mikea's Plant for its clean design. I was initially skeptical because it seemed too good of a deal but it really is that good! It looks nice, not difficult to setup with my microchip, easy to take care of, and works well too! I've reccomended this Plant to all of my friends too!
+        </p>
     </article>
 </section>
 </main>
 </body>
 <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
 <script src="js/big-plant.js"></script>
-
 <script>
     const addPlant = document.getElementById("add_plant");
     const addToCart = document.getElementsByClassName("add_to_cart");
@@ -57,17 +108,33 @@
     //for loop to add that number of plants into the array
     for(let i=0; i<plantNum; i++){
         cartItems.push("plant");
-        cartPrices.push("200");
+        cartPrices.push("2000");
     };
 
     addPlant.onclick = function(){
         cartItems.push("plant");
-        cartPrices.push("200");
-        sessionStorage.setItem("plant"+cartItems.length, "200");
-        // sessionStorage.clear();
-
+        cartPrices.push("2000");
+        sessionStorage.setItem("plant"+cartItems.length, col);
         cartNum.innerHTML = `cart (${sessionStorage.length})`;
     };
 
+    const microchip = document.getElementById("microchip");
+    const ref = document.getElementById("ref");
+    const span = document.getElementsByClassName("close")[0];
+
+    microchip.addEventListener("click",function(){
+        ref.style.display = "block";
+    })
+    span.onclick = function(){
+        ref.style.display = "none";
+    }
+    window.onclick = function(event){
+        if(event.target == ref){
+            ref.style.display = "none";
+        }
+    }
+
+
 </script>
+
 </html>

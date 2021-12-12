@@ -1,3 +1,71 @@
+let col = "cornflowerblue";
+const colBlue = document.getElementById("plant_blue");
+const colPink = document.getElementById("plant_pink");
+const colCoral = document.getElementById("plant_coral");
+const colYellow = document.getElementById("plant_yellow");
+const colWhite = document.getElementById("plant_white");
+
+colBlue.onclick = function(){
+    col = "cornflowerblue";
+    let canLg = new Zdog.Cylinder({
+        addTo: illo,
+        diameter: 200,
+        length: 200,
+        stroke: false,
+        color: col,
+        backface: 'grey',
+        rotate: {x: Zdog.TAU*1.65},
+    })
+};
+colPink.onclick = function(){
+    col = "pink";
+    let canLg = new Zdog.Cylinder({
+        addTo: illo,
+        diameter: 200,
+        length: 200,
+        stroke: false,
+        color: col,
+        backface: 'grey',
+        rotate: {x: Zdog.TAU*1.65},
+    })
+};
+colCoral.onclick = function(){
+    col = "coral";
+    let canLg = new Zdog.Cylinder({
+        addTo: illo,
+        diameter: 200,
+        length: 200,
+        stroke: false,
+        color: col,
+        backface: 'grey',
+        rotate: {x: Zdog.TAU*1.65},
+    })
+};
+colYellow.onclick = function(){
+    col = "gold";
+    let canLg = new Zdog.Cylinder({
+        addTo: illo,
+        diameter: 200,
+        length: 200,
+        stroke: false,
+        color: col,
+        backface: 'grey',
+        rotate: {x: Zdog.TAU*1.65},
+    })
+};
+colWhite.onclick = function(){
+    col = "whitesmoke";
+    let canLg = new Zdog.Cylinder({
+        addTo: illo,
+        diameter: 200,
+        length: 200,
+        stroke: false,
+        color: col,
+        backface: 'grey',
+        rotate: {x: Zdog.TAU*1.65},
+    })
+};
+
 let illo = new Zdog.Illustration({
     element: '#plant_lg',
     dragRotate: true,
@@ -7,7 +75,7 @@ let canLg = new Zdog.Cylinder({
     diameter: 200,
     length: 200,
     stroke: false,
-    color: "cornflowerblue",
+    color: col,
     backface: 'grey',
     rotate: {x: Zdog.TAU*1.65},
 })

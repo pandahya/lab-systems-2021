@@ -64,6 +64,7 @@
 </div>
 </main>
 </body>
+<script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
 <script>
     const cartNum = document.getElementById("cart_num");
     const productList = document.getElementById("product_list");
@@ -75,8 +76,6 @@
     let cartPrices = [];
     let subpriceNum, taxNum, totalNum;
     let cartBox = document.querySelector("#cart_box");
-    let newPlant;
-    let plants;
 
     //need to -1 for vscode
     let plantNum = sessionStorage.length;
@@ -88,11 +87,24 @@
         subpriceNum = 2000 + (i*2000);
         taxNum = subpriceNum*0.2;
         totalNum = subpriceNum + taxNum;
+
+        //add new plant
+        const newPlant = document.createElement("canvas");
+        newPlant.classList.add("cartPlant");
+        newPlant.classList.add("zdog-canvas");
+        
+        newPlant.id = "plant"+i;
+        cartBox.append(newPlant);
+
+        //random place in cartbox
+        let wRand = cartBox.clientWidth - newPlant.clientWidth;
+        let hRand = cartBox.clientHeight - newPlant.clientHeight;
+        let y = newPlant.style.top = Math.random()*hRand+"px";
+        let x = newPlant.style.left = Math.random()*wRand+"px";
     }
     cartItems.forEach(function(){
         const p1 = document.createElement("H2");
         const p2 = document.createElement("H2");
-        newPlant = document.createElement("div");
         const listPlant = document.createTextNode("plant");
         const listPrice = document.createTextNode("Ͼ2000");
         p1.appendChild(listPlant);
@@ -104,50 +116,9 @@
         subprice.innerHTML = "Ͼ"+subpriceNum;
         tax.innerHTML = "Ͼ"+taxNum;
         totalPrice.innerHTML = "Ͼ"+totalNum;
-        newPlant.classList.add("item");
-        cartBox.appendChild(newPlant);
-        
-        let wRand = cartBox.clientWidth - newPlant.clientWidth;
-        let hRand = cartBox.clientHeight - newPlant.clientHeight;
-        let y = newPlant.style.top = Math.random()*hRand+"px";
-        let x = newPlant.style.left = Math.random()*wRand+"px";
     });
 
     //https://www.kirupa.com/html5/drag.htm
-    let dragItem = document.querySelector(".item");
-    let active = false;
-    let currentX, currentY, initialX, initialY;
-    let xOffset = 0;
-    let yOffset = 0;
- 
-    cartBox.addEventListener("mousedown", dragStart, false);
-    cartBox.addEventListener("mouseup", dragEnd, false);
-    cartBox.addEventListener("mousemove", drag, false);
-    
-    function dragStart(e) {
-        initialX = e.clientX - xOffset;
-        initialY = e.clientY - yOffset;
-        if (e.target === dragItem) {
-            active = true;
-        }
-    }
-    function dragEnd(e){
-        intialX = currentX;
-        initialY = currentY;
-        active = false;
-    }
-    function drag(e){
-        if(active){
-            e.preventDefault();
-            currentX = e.clientX - initialX;
-            currentY = e.clientY - initialY;
-            xOffset = currentX;
-            yOffset = currentY;
-            setTranslate(currentX, currentY, dragItem);
-        }
-    }
-    function setTranslate(xPos, yPos, el){
-        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
-    }
 </script>
+<script src="js/cartPlant.js"></script>
 </html>

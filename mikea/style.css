@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root{
+    --color: cornflowerblue;
+}
 html{
     font-family: 'Work Sans', sans-serif;
 }
@@ -48,7 +51,7 @@ figcaption{
     text-align: center;
 }
 a:link, a:visited{
-    color:black;
+    color:var(--color);
     text-decoration: none;
 }
 a:hover{
@@ -76,7 +79,7 @@ a:hover{
     margin: 0 auto;
 }
 #backdoor{
-    background-color: navy;
+    background-color: var(--color);
     position: absolute;
     top: 0px;
     left: 0px;
@@ -197,9 +200,12 @@ nav{
     margin: 0;
     font-weight: 400;
 }
+.breadcrumb a:link, .breadcrumb a:visited{
+    color: black;
+}
 .breadcrumb strong{
     font-weight: 500;
-    color: blue;
+    color: var(--color);
 }
 #living-room{
     background-image: url("https://cdn.home-designing.com/wp-content/uploads/2013/10/angular-living-room-1024x640.jpg");
@@ -229,6 +235,12 @@ nav{
     display: grid;
     grid: 1fr / 1fr 1fr;
 }
+.option_btn{
+    border-radius: 50%;
+    margin: 10px 5px;
+    width: 30px;
+    height: 30px;
+}
 #plant_blue{
     background-color: cornflowerblue;
 }
@@ -239,13 +251,16 @@ nav{
     background-color: coral;
 }
 #plant_yellow{
-    background-color: yellow;
+    background-color: gold;
 }
 #plant_white{
     background-color: whitesmoke;
 }
+.add_to_cart{
+    margin: 10px 5px;
+}
 #microchip{
-    color: blue;
+    color: var(--color);
 }
 #microchip:hover{
     cursor: pointer;
@@ -253,7 +268,7 @@ nav{
     text-decoration-skip-ink: none;
 }
 #reviews{
-    padding: 20px;
+    padding: 20px 20px 50px 20px;
 }
 .review{
     margin: 40px;
@@ -268,7 +283,7 @@ nav{
 }
 .review h2{
     margin: 0;
-    color: blue;
+    color: var(--color);
 }
 
 .split{
@@ -316,7 +331,17 @@ nav{
     display: flex;
     justify-content: space-between;
 }
-
+#login{
+    height: 100vh;
+    /* background-color: blue; */
+}
+#loginBox{
+    width:200px;
+    margin: 15vh auto;
+}
+.hidden{
+    visibility: hidden;
+}
 .modal{
     display: none;
     position: fixed;
@@ -332,7 +357,7 @@ nav{
 .modal_content{
     background-color: #fefefe;
     margin: 5% auto;
-    padding: 20px;
+    padding: 20px; 
     border: 1px solid #888;
     width: min-content;
     text-align: center;
@@ -348,6 +373,7 @@ button{
     cursor: pointer;
     padding: 0.5em 0.75em;
     font-size: 1em;
+    margin: 10px 0;
 }
 .close{
     color: #aaa;

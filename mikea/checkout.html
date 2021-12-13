@@ -177,15 +177,17 @@
     const conf = document.getElementById("confirm")
     const confirmation = document.getElementById("confirmation");
     const loginPrompt = document.getElementById("loginPrompt");
-    let addressState = localStorage.getItem("address");
-    let paymentState = localStorage.getItem("payment");
     conf.onclick = function(){
-        if(addressState === "true" && paymentState === "true"){
+        let addressState = localStorage.getItem("address");
+        let paymentState = localStorage.getItem("payment");
+        if(addressState == "true" && paymentState == "true"){
             if(loginState === "true"){
                 confirmation.style.display = "block";
             }else if(loginState === "false"){
                 loginPrompt.style.display = "block";
             };
+        }else{
+            console.log("oop");
         };
     };
     const clear = document.getElementById("clear");

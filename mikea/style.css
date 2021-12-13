@@ -211,17 +211,19 @@ nav{
     color: var(--color);
 }
 #living-room{
-    background-image: url("https://cdn.home-designing.com/wp-content/uploads/2013/10/angular-living-room-1024x640.jpg");
+    /* background-image: url("https://cdn.home-designing.com/wp-content/uploads/2013/10/angular-living-room-1024x640.jpg"); */
+    background-image: url("assets/room.png");
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size:cover;
+    background-position: center;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
 #plant{
     position: absolute;
-    bottom: 10vh;
-    right: 10vw;
+    bottom: 30vh;
+    right: 45vw;
 }
 #plant_lg{
     /* background-color:lime; */

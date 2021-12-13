@@ -270,6 +270,12 @@ nav{
     text-decoration: underline wavy;
     text-decoration-skip-ink: none;
 }
+#ref .modal_content{
+    margin-top: 5vh;
+}
+th, td{
+    padding: 5px 5px 5px 20px;
+}
 #reviews{
     padding: 20px 20px 50px 20px;
 }

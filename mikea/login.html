@@ -19,6 +19,7 @@
         </form>
         <p>Don't have an account?
         <a href="signup.html"> Sign Up</a></p>
+        <button id ="op">open</button>
     </section>
     <div class="modal" id="scan">
         <div class="modal_content">
@@ -28,31 +29,49 @@
             <button id="loginOk">OK</button>
         </div>
     </div>
+    <div class="modal" id="welcome">
+        <div class="modal_content">
+            <!-- <span class="close">&times;</span> -->
+            <h2>Login Success</h2>
+            <h1>Welcome Back Tanvi!</h1>
+            <h2><a href="checkout.html">continue to checkout &rarr;</a></h2>
+        </div>
+    </div>
 </main>
 </body>
 <script>
     const scan = document.getElementById("scan");
     const span = document.getElementsByClassName("close")[0];
-    const scanChip = document.getElementById('scanChip');
+    const scanChip = document.getElementById("scanChip");
     const loginOk = document.getElementById("loginOk");
-    
+    const op = document.getElementById("op");
+    const welcome = document.getElementById("welcome");
+
     scanChip.onclick = function(){
         scan.style.display = "block";
         camera();
-    }
+    };
     span.onclick = function(){
         scan.style.display = "none";
         closeCam();
-    }
+    };
     window.onclick = function(event){
         if(event.target == scan){
             scan.style.display = "none";
             closeCam();
-        }
-    }
+        };
+    };
     loginOk.onclick = function(){
-
+        scan.style.display = "none";
+        closeCam();
+        localStorage.setItem("login", true);
+        
+    };
+    op.onclick = function(){
+        welcome.style.display = "block";
+        console.log("open")
     }
+
     let constraints = {
         video: {
             width: {
@@ -67,7 +86,8 @@
             },
             facingMode: 'user'
         }
-    }
+    };
+
     const video = document.querySelector('video');
     const mediaStream = video.srcObject;
     function camera(){
@@ -78,10 +98,10 @@
             video.onloadedmetadata = function(e) {
                 video.play();
             };
-            console.log('hi');
+            // console.log('hi');
         })
         .catch(function(err) { console.log(err.name + ": " + err.message); });
-    }
+    };
 
     //https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack/stop
     //https://developers.google.com/web/updates/2015/07/mediastream-deprecations?hl=en#stop-ended-and-active
@@ -90,19 +110,19 @@
         .then(function(mediaStream){
             const track = mediaStream.getTracks();
             track[0].stop();
-            console.log('bye');
+            // console.log('bye');
         },
         function(error){
             console.log('getUserMedia() error', error);
         });
         video.srcObject = null;
-        console.log('bye2');
-    }
+        // console.log('bye2');
+    };
     const midBtn = document.getElementById("midBtn");
     const midForm = document.getElementById("midform");
 
     midBtn.onclick = function(){
         midForm.classList.toggle("hidden");
-    }
+    };
 </script>
 </html>

@@ -385,6 +385,7 @@ th, td{
 }
 #scan .modal_content{
     width: min-content;
+    margin-top: 3vh;
 }
 video {
     -webkit-transform: scaleX(-1);
@@ -417,4 +418,7 @@ button{
     height: min-content;
     padding: 50px;
     margin-top: 30vh;
+}
+#invalid{
+    margin: 0;
 }

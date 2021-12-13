@@ -7,7 +7,7 @@
     <link href="style.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="overflow: hidden;">
 <main class="fullwidth" id="login">
     <section id="loginBox">
         <h1>Login</h1>
@@ -17,8 +17,11 @@
             <label for="mid">M-ID:</label><br>
             <input type="password" id="mid" name="mid">
         </form>
-        <p>Don't have an account?
-        <a href="signup.html"> Sign Up</a></p>
+        <p>
+            Don't have an account?
+            <br>
+            <a href="signup.html"> Sign Up</a>
+        </p>
     </section>
     <div class="modal" id="scan">
         <div class="modal_content">
@@ -113,6 +116,7 @@
         video.srcObject = null;
         // console.log('bye2');
     };
+    
     const midBtn = document.getElementById("midBtn");
     const midForm = document.getElementById("midform");
 

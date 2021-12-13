@@ -2,8 +2,6 @@ const scan = document.getElementById("scan");
 const address = document.getElementById("scan_address");
 const payment = document.getElementById("scan_payment");
 const span = document.getElementsByClassName("close")[0];
-const conf = document.getElementById("confirm")
-const confirmation = document.getElementById("confirmation");
 
 address.onclick = function(){
     scan.style.display = "block";
@@ -13,9 +11,6 @@ payment.onclick = function(){
     scan.style.display = "block";
     camera();
 }
-conf.onclick = function(){
-    confirmation.style.display = "block";
-};
 span.onclick = function(){
     scan.style.display = "none";
     closeCam();

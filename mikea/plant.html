@@ -16,7 +16,7 @@
             <ul id="menu">
                 <a href="rooms.html"><li>home</li></a>
                 <a href="cart.html"><li id="cart_num">cart (0)</li></a>
-                <a href="login.html"><li>login</li></a>
+                <a href="login.html"><li id="menuLogin">login</li></a>
               </ul>
         </div>
     </nav>
@@ -100,6 +100,15 @@
     let cartItems = [];
     let cartPrices = [];
 
+    const menuLogin = document.getElementById("menuLogin");
+    let loginState = localStorage.getItem("login");
+
+    if(loginState === "true"){
+        menuLogin.innerHTML = "Hi, Tanvi";
+    }else if(loginState === "false"){
+        menuLogin.innerHTML = "login";
+    }
+    
     //get number of plants in storage at start
     let plantNum = sessionStorage.length;
 

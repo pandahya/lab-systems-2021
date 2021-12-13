@@ -11,7 +11,7 @@
 <main class="fullwidth" id="login">
     <section id="loginBox">
         <h1>Login</h1>
-        <button id="scanChip">with microchip</button>
+        <button id="scanChip">with microchip scan</button>
         <button id="midBtn">with M-ID</button>
         <form id="midform" class="hidden">
             <label for="mid">M-ID:</label><br>
@@ -19,7 +19,6 @@
         </form>
         <p>Don't have an account?
         <a href="signup.html"> Sign Up</a></p>
-        <button id ="op">open</button>
     </section>
     <div class="modal" id="scan">
         <div class="modal_content">
@@ -29,7 +28,7 @@
             <button id="loginOk">OK</button>
         </div>
     </div>
-    <div class="modal" id="welcome">
+    <div class="modal" id="loginTrue">
         <div class="modal_content">
             <!-- <span class="close">&times;</span> -->
             <h2>Login Success</h2>
@@ -44,8 +43,7 @@
     const span = document.getElementsByClassName("close")[0];
     const scanChip = document.getElementById("scanChip");
     const loginOk = document.getElementById("loginOk");
-    const op = document.getElementById("op");
-    const welcome = document.getElementById("welcome");
+    const loginTrue = document.getElementById("loginTrue");
 
     scanChip.onclick = function(){
         scan.style.display = "block";
@@ -65,12 +63,9 @@
         scan.style.display = "none";
         closeCam();
         localStorage.setItem("login", true);
+        loginTrue.style.display = "block";
         
     };
-    op.onclick = function(){
-        welcome.style.display = "block";
-        console.log("open")
-    }
 
     let constraints = {
         video: {

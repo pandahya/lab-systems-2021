@@ -359,8 +359,11 @@ nav{
     margin: 5% auto;
     padding: 20px; 
     border: 1px solid #888;
-    width: min-content;
+    width: fit-content;
     text-align: center;
+}
+#scan .modal_content{
+    width: min-content;
 }
 video {
     -webkit-transform: scaleX(-1);
@@ -389,12 +392,8 @@ button{
 #confirm{
     float: right;
 }
-#confirmation .modal_content{
-    width: fit-content;
+#confirmation .modal_content, #loginTrue .modal_content{
     height: min-content;
     padding: 50px;
     margin-top: 30vh;
-}
-#welcome{
-    background-color: black;
 }

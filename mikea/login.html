@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MIKEA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+<main class="fullwidth" id="login">
+    <section id="loginBox">
+        <h1>Login</h1>
+        <button id="scanChip">with microchip</button>
+        <button id="midBtn">with M-ID</button>
+        <form id="midform" class="hidden">
+            <label for="mid">M-ID:</label><br>
+            <input type="password" id="mid" name="mid">
+        </form>
+        <p>Don't have an account?
+        <a href="signup.html"> Sign Up</a></p>
+    </section>
+    <div class="modal" id="scan">
+        <div class="modal_content">
+            <span class="close">&times;</span>
+            <h1>scan microchip now</h1>
+            <video autoplay></video>
+            <button id="loginOk">OK</button>
+        </div>
+    </div>
+</main>
+</body>
+<script>
+    const scan = document.getElementById("scan");
+    const span = document.getElementsByClassName("close")[0];
+    const scanChip = document.getElementById('scanChip');
+    const loginOk = document.getElementById("loginOk");
+    
+    scanChip.onclick = function(){
+        scan.style.display = "block";
+        camera();
+    }
+    span.onclick = function(){
+        scan.style.display = "none";
+        closeCam();
+    }
+    window.onclick = function(event){
+        if(event.target == scan){
+            scan.style.display = "none";
+            closeCam();
+        }
+    }
+    loginOk.onclick = function(){
+
+    }
+    let constraints = {
+        video: {
+            width: {
+            min: 427,
+            ideal: 640,
+            max: 1280,
+            },
+            height: {
+            min: 240,
+            ideal: 480,
+            max: 720
+            },
+            facingMode: 'user'
+        }
+    }
+    const video = document.querySelector('video');
+    const mediaStream = video.srcObject;
+    function camera(){
+        navigator.mediaDevices.getUserMedia(constraints)
+        .then(function(mediaStream) {
+            // let video = document.querySelector('video');
+            video.srcObject = mediaStream;
+            video.onloadedmetadata = function(e) {
+                video.play();
+            };
+            console.log('hi');
+        })
+        .catch(function(err) { console.log(err.name + ": " + err.message); });
+    }
+
+    //https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack/stop
+    //https://developers.google.com/web/updates/2015/07/mediastream-deprecations?hl=en#stop-ended-and-active
+    function closeCam(){
+        navigator.mediaDevices.getUserMedia(constraints)
+        .then(function(mediaStream){
+            const track = mediaStream.getTracks();
+            track[0].stop();
+            console.log('bye');
+        },
+        function(error){
+            console.log('getUserMedia() error', error);
+        });
+        video.srcObject = null;
+        console.log('bye2');
+    }
+    const midBtn = document.getElementById("midBtn");
+    const midForm = document.getElementById("midform");
+
+    midBtn.onclick = function(){
+        midForm.classList.toggle("hidden");
+    }
+</script>
+</html>

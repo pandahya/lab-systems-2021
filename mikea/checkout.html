@@ -21,18 +21,27 @@
               </ul>
         </div>
     </nav>
-<main class="fullwidth">
+<main class="fullwidth" style="padding-bottom: 200px;">
     <h1 class="breadcrumb"><a href="rooms.html">MIKEA</a> > <a href="cart.html">my cart</a> > <strong>checkout</strong></h1>
 <div class="split">
     <div>
         <section class="checkout_box" id="checkout_address">
             <h2 style="font-size: 1.5em;">Shipping Address:</h2>
+            <button id="enter_address">Enter building or unit code</button>
+            <div id="addressInput" class="hidden">
+                <input type="text" id="addressBox" name="address">
+                <button id="addressOk">OK</button>
+            </div>
             <button id="scan_address">scan microchip</button>
-            <!-- <h1 class="open_modal">scan microchip</h1> -->
             <!-- https://www.w3schools.com/howto/howto_css_modals.asp -->
         </section>
         <section class="checkout_box" id="checkout_payment">
             <h2 style="font-size: 1.5em;">Payment:</h2>
+            <button id="enter_payment">Enter account number</button>
+            <div id="paymentInput" class="hidden">
+                <input type="text" id="paymentBox" name="payment">
+                <button id="paymentOk">OK</button>    
+            </div>
             <button id="scan_payment">scan microchip</button>
         </section>
         <section class="checkout_box" id="checkout_reciept">
@@ -74,12 +83,19 @@
         <span class="close">&times;</span>
         <h1>scan microchip now</h1>
         <video autoplay></video>
+        <button id="scanOk">OK</button>
     </div>
 </div>
 <div class="modal" id="confirmation">
     <div class="modal_content">
         <h1>ORDER CONFIRMED</h1>
         <p id="clear"><a href="rooms.html">keep shopping &rarr;</a></p>
+    </div>
+</div>
+<div class="modal" id="loginPrompt">
+    <div class="modal_content">
+        <h1>Please login to proceed with checkout</h1>
+        <p id="clear"><a href="login.html">login &rarr;</a></p>
     </div>
 </div>
 </main>
@@ -104,9 +120,35 @@
         menuLogin.innerHTML = "Hi, Tanvi";
     }else if(loginState === "false"){
         menuLogin.innerHTML = "login";
-    }
+    };
     let plantNum = sessionStorage.length;
     cartNum.innerHTML = `cart (${sessionStorage.length})`;
+
+    const enterAddress = document.getElementById("enter_address");
+    const addressInput = document.getElementById("addressInput");
+    const addressBox = document.getElementById("addressBox");
+    const addressOk = document.getElementById("addressOk");
+    const enterPayment = document.getElementById("enter_payment");
+    const paymentInput = document.getElementById("paymentInput")
+    const paymentBox = document.getElementById("paymentBox");
+    const paymentOk = document.getElementById("paymentOk");
+    const scanOk = document.getElementById("scanOk");
+    enterAddress.onclick = function(){
+        addressInput.classList.toggle("hidden");
+    };
+    addressOk.onclick = function(){
+        localStorage.setItem("address", true);
+    };
+    enterPayment.onclick = function(){
+        paymentInput.classList.toggle("hidden");
+    };
+    paymentOk.onclick = function(){
+        localStorage.setItem("payment", true);
+    };
+    scanOk.onclick = function(){
+        localStorage.setItem("address", true);
+        localStorage.setItem("payment", true);
+    };
 
     for(let i=0; i<plantNum; i++){
         cartItems.push("plant");
@@ -114,7 +156,7 @@
         subpriceNum = 2000 + (i*2000);
         taxNum = subpriceNum*0.2;
         totalNum = subpriceNum + taxNum;
-    }
+    };
     cartItems.forEach(function(){
         const p1 = document.createElement("H2");
         const p2 = document.createElement("H2");
@@ -132,9 +174,23 @@
         totalPrice.innerHTML = "Ͼ"+totalNum;
     });
 
+    const conf = document.getElementById("confirm")
+    const confirmation = document.getElementById("confirmation");
+    const loginPrompt = document.getElementById("loginPrompt");
+    let addressState = localStorage.getItem("address");
+    let paymentState = localStorage.getItem("payment");
+    conf.onclick = function(){
+        if(addressState === "true" && paymentState === "true"){
+            if(loginState === "true"){
+                confirmation.style.display = "block";
+            }else if(loginState === "false"){
+                loginPrompt.style.display = "block";
+            };
+        };
+    };
     const clear = document.getElementById("clear");
     clear.addEventListener("click",function(){
         sessionStorage.clear();
-    })
+    });
 </script>
 </html>

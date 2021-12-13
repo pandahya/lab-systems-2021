@@ -63,7 +63,7 @@ a:hover{
 }
 
 ::selection{
-    background: lightblue;
+    background: cornflowerblue;
 }
 
 #door{
@@ -331,8 +331,20 @@ nav{
     margin-bottom: 20px;
 }
 #checkout_address, #checkout_payment{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid: 1fr / 0.5fr 0.6fr 0.5fr 0.4fr;
+}
+.checkout_box button{
+    width:fit-content;
+    height: fit-content;
+}
+.checkout_box input{
+    height:fit-content;
+    width: 50%;
+    margin: auto 0;
+}
+#scan_payment, #scan_address{
+    margin-left: auto;
 }
 #login, #signup{
     height: 100vh;

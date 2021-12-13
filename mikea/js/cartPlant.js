@@ -21,6 +21,19 @@ for(let i=0; i<plantNum; i++){
         backface: 'grey',
         rotate: {x: Zdog.TAU*1.65},
     });
+    let box = new Zdog.Box({
+        addTo: illo[i],
+        width: 25,
+        height: 25,
+        depth: 25,
+        leftFace: false,
+        rightFace: false,
+        topFace: false,
+        bottomFace: false,
+        rearFace: false,
+        translate: {z: -30, y: 25},
+        rotate: {x: Zdog.TAU*1.65},
+    });
     
     let leaf = new Zdog.Cone({
         addTo: leaves,

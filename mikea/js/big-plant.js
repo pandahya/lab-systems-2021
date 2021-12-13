@@ -78,7 +78,20 @@ let canLg = new Zdog.Cylinder({
     color: col,
     backface: 'grey',
     rotate: {x: Zdog.TAU*1.65},
-})
+});
+let box = new Zdog.Box({
+    addTo: illo,
+    width: 50,
+    height: 50,
+    depth: 50,
+    leftFace: false,
+    rightFace: false,
+    topFace: false,
+    bottomFace: false,
+    rearFace: false,
+    translate: {z: -60, y: 50},
+    rotate: {x: Zdog.TAU*1.65},
+});
 let leaves = new Zdog.Group({
     addTo: illo,
     rotate: {x: Zdog.TAU*1.9},

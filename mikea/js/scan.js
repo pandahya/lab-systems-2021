@@ -58,8 +58,11 @@ function camera(){
 function closeCam(){
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(mediaStream){
-        const track = mediaStream.getTracks();
-        track[0].stop();
+        const tracks = mediaStream.getTracks();
+        tracks.forEach(function(track) {
+            track.stop();
+          });
+        
         console.log('bye');
     },
     function(error){

@@ -24,6 +24,9 @@ main{
     background-color: grey;
     overflow: hidden;
 }
+#login, #signup{
+    overflow: hidden;
+}
 
 section{
     position: relative;
@@ -331,11 +334,11 @@ nav{
     display: flex;
     justify-content: space-between;
 }
-#login{
+#login, #signup{
     height: 100vh;
     /* background-color: blue; */
 }
-#loginBox{
+#loginBox, #signupBox{
     width:200px;
     margin: 15vh auto;
 }

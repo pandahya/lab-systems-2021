@@ -79,7 +79,7 @@ leaf.copy({
 });
 
 function animate() {
-    illo.rotate. y += 0.03;
+    illo.rotate. y += 0.01;
     illo.updateRenderGraph();
     requestAnimationFrame( animate );
 }

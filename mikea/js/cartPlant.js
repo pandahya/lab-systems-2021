@@ -84,7 +84,7 @@ for(let i=0; i<plantNum; i++){
     });
     
     function animate() {
-        illo[i].rotate. y += 0.03;
+        illo[i].rotate. y += 0.01;
         illo[i].updateRenderGraph();
         requestAnimationFrame( animate );
     }

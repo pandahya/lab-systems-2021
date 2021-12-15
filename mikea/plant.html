@@ -26,7 +26,7 @@
     <figure><canvas class="zdog-canvas" id="plant_lg" width="400" height="500"></canvas></figure>
     <article>
         <h1>Plant</h1>
-        <h2>Level 8 Green Smart Plant</h2>
+        <h2>Level 5 Green Smart Plant</h2>
         <h2>Ͼ2000</h2>
         <div class="item_options">
             <button class="option_btn" id="plant_blue" type="button"></button>
@@ -46,14 +46,14 @@
             <br>
             PlantOS version 1.45.9
             <br>
-            Compatible with Personal microchips Grade B and above and Task microchips Grade C and above.
+            Compatible with microchips Grade B and above.
             <br>
             <span id="microchip">Which microchip do I have?</span>
         </p>
         <p class="readMore">
             As mandated by Policy no. 88590 to reduce carbon emissions, each household must have one plant for every two people, each plant must be a Level 5 Green/Blue/White or higher.
             <br>
-            Plant is a Level 8 Green product.
+            Plant is a Level 5 Green product.
         </p>
     </article>
 </section>
@@ -80,8 +80,8 @@
               <td>
                 Mamsung Pass+ <br>
                 Mapple Micro 6, 5<br>
-                Mapple Micro Pro 6, 5, 4, 3<br>
-                Mapple Micro Pro+ 6, 5, 4, 3<br>
+                Mapple Micro Pro 6, 5<br>
+                Mdangerous Mthings xEM2 RFID, xDF5 NFC, xSLX2 NFC<br>
                 Mesla Model A<br>
                 Mintel 17050, 17040, 17000, 16050, 16000
               </td>
@@ -92,9 +92,9 @@
                 Mapple Micro 4, 3<br>
                 Mamsung Pass<br>
                 MBM Nano Chip a500, a400<br>
+                Mdangerous Mthings xEM RFID, xDF4 NFC, xSLX NFC<br>
                 Mintel 15000, 15050<br>
-                Moogle Chip EX 2, 1<br>
-                Moogle x MIKEA Chip
+                Moogle Chip EX 2, 1
               </td>
           </tr>
           <tr>
@@ -130,21 +130,26 @@
     <article class="review">
         <div><h2>Hassle Free Upgrade</h2><h2>★★★★★</h2></div>
         <h3>Tanvi Mishra</h3>
-        <p>My company has used MIKEA's Plant's for years now in the office, ever since they started making the first versions 5 years ago. It was finally time for us to upgrade and I went with MIKEA's Plant again without a doubt. Their products are just exquisite. They all pair swiftly with the Moogle Task Chips.</p>
+        <p>My company has used MIKEA's Plant's for years now in the office, ever since they started making the first versions 5 years ago. It was finally time for us to upgrade and I went with MIKEA's Plant again without a doubt. Their products are just exquisite. They all pair swiftly with the Moogle Chips.</p>
     </article>
     <article class="review">
         <div><h2>Air feels so much fresher</h2><h2>★★★★★</h2></div>
-        <h3>Tanvi Mishra</h3>
+        <h3>Yiping Dong</h3>
         <p>
             I've been using my new Plant for a few days and I can feel the air getting fresher already! It's super easy to pair with my microchip (I have the latest MApple Micro 3).
         </p>
     </article>
     <article class="review">
         <div><h2>Easy setup</h2><h2>★★★★★</h2></div>
-        <h3>Tanvi Mishra</h3>
+        <h3>Apurv Rayate</h3>
         <p>
             I previously had a Model Green from Mesla that did really well at purifying the air, but it wasn't the right style for my home. My friend reccomended that I get Mikea's Plant for its clean design. I was initially skeptical because it seemed too good of a deal but it really is that good! It looks nice, not difficult to setup with my microchip, easy to take care of, and works well too! I've reccomended this Plant to all of my friends too!
         </p>
+    </article>
+    <article class="review" id="badRev">
+        <div><h2>microchip incompatible??? illegal surveillance????</h2><h2>☆☆☆☆★</h2></div>
+        <h3>Hyacinth Weng</h3>
+        <p>It's Not What You THink!!!!!!! I only bought this Plant because it's the most affordable one on the market, but it's clearly not for us everyday people with our C Grade microchips that are usually compatible with B Grade min products! I have a Moogle Chip 2, a Grade C microchip. MIKEA must have purposefully designed it to leave us out!!!! This has happened with so many of my friends with Cs and MIKEA products!! AND it's collecting so much of my personal data!!!! Why is the plant always on?? Is it watching me???</p>
     </article>
 </section>
 </main>
@@ -166,7 +171,7 @@
         menuLogin.innerHTML = "Hi, Tanvi";
     }else if(loginState === "false"){
         menuLogin.innerHTML = "login";
-    }
+    };
     
     //get number of plants in storage at start
     let plantNum = sessionStorage.length;
@@ -192,15 +197,27 @@
 
     microchip.addEventListener("click",function(){
         ref.style.display = "block";
-    })
+    });
     span.onclick = function(){
         ref.style.display = "none";
-    }
+    };
     window.onclick = function(event){
         if(event.target == ref){
             ref.style.display = "none";
         }
-    }
+    };
+
+    const badRev = document.getElementById("badRev");
+    badRev.addEventListener("mouseenter",function(){
+        badRev.style.opacity = "100%";
+    });
+    badRev.addEventListener("mouseleave", function(){
+        badRev.style.opacity = "0%";
+    });
+    badRev.addEventListener("mouseover",function(){
+        let rand = Math.random()*0.2;
+        badRev.style.opacity = rand;
+    });
 
 
 </script>

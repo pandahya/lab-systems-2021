@@ -209,13 +209,13 @@
 
     const badRev = document.getElementById("badRev");
     badRev.addEventListener("mouseenter",function(){
-        badRev.style.opacity = "100%";
+        badRev.style.opacity = "50%";
     });
     badRev.addEventListener("mouseleave", function(){
         badRev.style.opacity = "0%";
     });
     badRev.addEventListener("mouseover",function(){
-        let rand = Math.random()*0.2;
+        let rand = Math.random()*0.1;
         badRev.style.opacity = rand;
     });
 

@@ -13,10 +13,14 @@
         <h1>Sign Up</h1>
         <button id="scanChip">with microchip scan</button>
         <button id="midBtn">with M-ID</button>
-        <form id="midform" class="hidden">
+        <div id="midform" class="hidden">
             <label for="mid">M-ID:</label><br>
-            <input type="password" id="mid" name="mid">
-        </form>
+            <div style="display: flex;">
+                <input type="password" id="mid" name="mid">
+                <button id="midOk">OK</button>
+            </div>
+            <p class="hidden" id="midInv" style="color:red">M-ID Invalid. Try Again?</p>
+        </div>
         <p>
             Have an account?
             <br>
@@ -114,9 +118,13 @@
 
     const midBtn = document.getElementById("midBtn");
     const midForm = document.getElementById("midform");
-
+    const midOk = document.getElementById("midOk");
+    const midInv = document.getElementById("midInv");
     midBtn.onclick = function(){
         midForm.classList.toggle("hidden");
+    };
+    midOk.onclick = function(){
+        midInv.style.visibility = "visible";
     };
 </script>
 </html>

@@ -13,10 +13,13 @@
         <h1>Login</h1>
         <button id="scanChip">with microchip scan</button>
         <button id="midBtn">with M-ID</button>
-        <form id="midform" class="hidden">
+        <div id="midform" class="hidden">
             <label for="mid">M-ID:</label><br>
-            <input type="password" id="mid" name="mid">
-        </form>
+            <div style="display: flex;">
+                <input type="password" id="mid" name="mid">
+                <button id="midOk">OK</button>
+            </div>
+        </div>
         <p>
             Don't have an account?
             <br>
@@ -119,9 +122,13 @@
     
     const midBtn = document.getElementById("midBtn");
     const midForm = document.getElementById("midform");
-
+    const midOk = document.getElementById("midOk");
     midBtn.onclick = function(){
         midForm.classList.toggle("hidden");
+    };
+    midOk.onclick = function(){
+        localStorage.setItem("login", true);
+        loginTrue.style.display = "block";
     };
 </script>
 </html>
